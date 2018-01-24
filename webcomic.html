@@ -1,0 +1,99 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+	var siteList=[
+		'http://skin-horse.com/',
+		'http://flipside.keenspot.com/',
+		'http://www.goblinscomic.org/',
+		'http://www.giantitp.com/cgi-bin/GiantITP/ootscript',
+		'http://www.misfile.com/',
+		'https://www.xkcd.com/',
+		'http://www.nerfnow.com/',
+		'http://www.lfg.co/latest-comic/',
+		'https://www.penny-arcade.com/comic',
+		'http://www.awkwardzombie.com/index.php',
+		'http://aikoniacomic.com/index.php',
+		'http://limbero.org/jl8/',
+		'http://www.kiwiblitz.com/',
+		'http://www.starpowercomic.com/',
+		'http://dungeonsweetdungeon.com/',
+		'http://www.questionablecontent.net/',
+		'http://www.girlgeniusonline.com/comic.php',
+		'http://oglaf.com/',
+		'http://thegamercat.com/comic/?latest=comics',
+		'https://tapastic.com/series/Meet-Sally',
+		//'http://www.alicegrove.com/',
+		'http://shotgunshuffle.com/',
+		'http://monsterpop.mayakern.com/',
+		'http://www.exocomics.com/',
+		// 'http://www.whompcomic.com/', //This one breaks out of the iframe, but it's not very good so fuck it.
+		'https://www.peppercarrot.com/',
+		'http://www.twogag.com/',
+		'http://www.gunnerkrigg.com/',
+		'http://www.commitstrip.com/en/',
+		'http://oursuperadventure.tumblr.com/',
+		'http://www.bjsincorporated.com/erma.html',
+		'https://tapastic.com/series/maddyscientist',
+		'http://thepunchlineismachismo.com/', //Gets to go last because the site is slow AF
+	];
+	var index=0;
+	
+	loadCurrent();
+	$('.nextButton').click(function(){
+		if(index+1!=siteList.length)index++;
+		loadCurrent();
+	});
+	$('.prevButton').click(function(){
+		if(index!=0)index--;
+		loadCurrent();
+	});
+	function loadCurrent(){
+		$('.urlDisplay').text("(" + (index+1) + "/" + siteList.length + ") " + siteList[index]);
+		$('.mainWindow').attr('src',siteList[index]);
+	}
+});
+</script>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<style>
+body{ margin:0; padding:0; }
+.mainControls { height: 60px; width:100%; line-height: 60px; vertical-align: middle; font-family:"Roboto";}
+.mainWindow { width:100%; height:calc(100% - 60px); border:none;}
+.prevButton,
+.nextButton{
+	display: inline-block;
+    /*margin-left: 15px;
+    margin-right: 15px;*/
+    background-color: #71BC78;
+    padding: 0 40px;
+    text-decoration: none;
+    font-size: 27px;
+    color: white;
+    z-index: 2;
+}
+.prev, .next {z-index: 2;display:inline-block;}
+.nextButton{float: right;}
+.prevButton{/*float: left;*/}
+.urlDisplay{
+	position: absolute;
+	text-align: center;
+	width:100%;
+	width:auto;
+	margin-right: auto;
+	margin-left: auto;
+	z-index: 1;
+	display: inline-block;
+	padding-left:20px;
+}
+</style>
+
+<div class='mainControls'>
+	<!-- <div class='prev'> -->
+	<a href='#' class='prevButton'>Previous</a>
+	<!-- </div> -->
+	<div class='urlDisplay'></div>
+	<!-- <div class='next'> -->
+	<a href='#' class='nextButton'>Next</a>
+	<!-- </div> -->
+</div>
+<iframe class='mainWindow'>
+</iframe>
