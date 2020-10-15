@@ -48,7 +48,7 @@ $(document).ready(function(){
 		loadCurrent();
 	});
 	function loadCurrent(){
-		$('.urlDisplay').text("(" + (index+1) + "/" + siteList.length + ") <a href='" + siteList[index] +"'>"+siteList[index]+"</a>");
+		$('.urlDisplay').html("(" + (index+1) + "/" + siteList.length + ") <a href='" + siteList[index] +"'>"+siteList[index]+"</a>");
 		$('.mainWindow').attr('src',siteList[index]);
 	}
 });
