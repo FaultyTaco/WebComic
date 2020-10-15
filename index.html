@@ -11,7 +11,7 @@ $(document).ready(function(){
 		//'http://www.nerfnow.com/',
 		//'http://www.lfg.co/latest-comic/',
 		'https://www.penny-arcade.com/comic',
-		'http://www.awkwardzombie.com/index.php',
+		//'http://www.awkwardzombie.com/index.php',
 		//'http://aikoniacomic.com/index.php',
 		//'http://limbero.org/jl8/',
 		//'http://www.kiwiblitz.com/',
@@ -25,7 +25,7 @@ $(document).ready(function(){
 		//'http://www.alicegrove.com/',
 		//'http://shotgunshuffle.com/',
 		//'http://monsterpop.mayakern.com/',
-		//'http://www.exocomics.com/',
+		'http://www.exocomics.com/',
 		// 'http://www.whompcomic.com/', //This one breaks out of the iframe, but it's not very good so fuck it.
 		//'https://www.peppercarrot.com/',
 		//'http://www.twogag.com/',
@@ -48,7 +48,7 @@ $(document).ready(function(){
 		loadCurrent();
 	});
 	function loadCurrent(){
-		$('.urlDisplay').text("(" + (index+1) + "/" + siteList.length + ") " + siteList[index]);
+		$('.urlDisplay').text("(" + (index+1) + "/" + siteList.length + ") <a href='" + siteList[index] +"'>"+siteList[index]+"</a>");
 		$('.mainWindow').attr('src',siteList[index]);
 	}
 });
